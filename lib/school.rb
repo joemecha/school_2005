@@ -8,10 +8,6 @@ class School
     @student_names = []
   end
 
-  def start_time
-    @start_time
-  end
-
   def add_student_name(name)
     @student_names << name
   end
