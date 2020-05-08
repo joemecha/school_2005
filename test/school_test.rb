@@ -5,24 +5,28 @@ require './lib/school'
 class SchoolTest < Minitest::Test
   #Iteration 1 Tests:
   def test_it_exists
+    skip
     school = School.new('9:00', 7)
 
     assert_instance_of School, school
   end
 
   def test_it_has_start_time
+    skip
     school = School.new('9:00', 7)
 
     assert_equal '9:00', school.start_time
   end
 
   def test_it_has_hours_in_school_day
+    skip
     school = School.new('9:00', 7)
 
     assert_equal 7, school.hours_in_school_day
   end
 
   def test_it_starts_with_no_student_names
+    skip
     school = School.new('9:00', 7)
 
     assert_equal [], school.student_names
@@ -30,6 +34,7 @@ class SchoolTest < Minitest::Test
 
   #Iteration 2 Tests:
   def test_it_can_add_student_names
+    skip
     school = School.new('9:00', 7)
 
     school.add_student_name('Aurora')
@@ -40,37 +45,11 @@ class SchoolTest < Minitest::Test
   end
 
   def test_it_can_calculate_end_time
+    skip
     school1 = School.new('9:00', 7)
     school2 = School.new('9:00', 3)
 
     assert_equal '16:00', school1.end_time
     assert_equal '12:00', school2.end_time
-  end
-
-  def test_is_full_time
-    school1 = School.new('9:00', 7)
-    school2 = School.new('9:00', 4)
-    assert_equal true, school1.is_full_time?
-    assert_equal false, school2.is_full_time?
-  end
-
-  def test_standardize_student_names
-    school = School.new('9:00', 7)
-
-    school.add_student_name('Aurora')
-    school.add_student_name('tim')
-    school.add_student_name('megan')
-    assert_equal ["Aurora", "Tim", "Megan"], school.standard_student_names
-  end
-
-  def test_convert_end_time_to_clock_time
-    school = School.new('9:00', 7)
-    assert_equal "4:00", school.convert_end_time_to_clock_time
-    school = School.new('6:00', 6)
-    assert_equal "12:00", school.convert_end_time_to_clock_time
-    school = School.new('12:00', 6)
-    assert_equal "6:00", school.convert_end_time_to_clock_time
-    school = School.new('5:00', 4)
-    assert_equal "9:00", school.convert_end_time_to_clock_time
   end
 end
