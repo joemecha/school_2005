@@ -16,5 +16,20 @@ class School
                             .first
                             .to_i
     "#{(start_hour + @hours_in_school_day)}:00"
-  end 
+  end
+
+  def is_full_time?
+    @hours_in_school_day > 4
+  end
+
+  def standard_student_names
+    @student_names.map do |name|
+      name.capitalize
+    end
+  end
+
+  def convert_end_time_to_clock_time
+    end_hour = end_time.split(":").first.to_i
+    "#{((end_hour - 12) if end_hour > 12)}:00"
+  end
 end
